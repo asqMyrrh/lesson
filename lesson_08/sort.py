@@ -75,23 +75,18 @@ cards2 = sorted(cards2, key=lambda card: [-digit_lengths[card], card])
 # print(math.nan)
 
 def merge_sort(array):
-    if len(array) == 1:  # базовый случай рекурсии
+    if len(array) == 1: 
         return array
   
-    # запускаем сортировку рекурсивно на левой половине
     left = merge_sort(array[0 : len(array)/2])
 
-    # запускаем сортировку рекурсивно на правой половине
     right = merge_sort(array[len(array)/2 : len(array)])
 
-    # заводим массив для результата сортировки
     result = [] * len(array)
     print(result)
   
-    # сливаем результаты
     l, r, k = 0, 0, 0
     while l < len(left) and r < len(right):
-        # выбираем, из какого массива забрать минимальный элемент
         if left[l] <= right[r]:
             result[k] = left[l]
             l += 1
@@ -100,8 +95,6 @@ def merge_sort(array):
             r += 1
             k += 1
 
-    # Если один массив закончился раньше, чем второй, то
-    # переносим оставшиеся элементы второго массива в результирующий
     while l < len(left): 
         result[k] = left[l]   # перенеси оставшиеся элементы left в result
         l += 1
@@ -113,7 +106,7 @@ def merge_sort(array):
     
     return result 
 
-# merge_sort([7, 3, 9, 0, 25])
+merge_sort([7, 3, 9, 0, 25])
 
 def partition(array, pivot):
     less = [] # элементы array, меньшие pivot
@@ -140,4 +133,4 @@ def counting_sort(array, k):
     for value in range(k):
         for value in counted_values:
             array[index] = value
-            index += 1 
+            index += 1
