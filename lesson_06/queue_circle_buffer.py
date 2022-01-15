@@ -1,5 +1,5 @@
 class Queue:
-    def __init__(self, n) -> None:
+    def init(self, n) -> None:
         self.queue = [None] * n
         self.max_n = n
         self.head = 0
